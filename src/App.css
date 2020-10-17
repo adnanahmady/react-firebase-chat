@@ -7,6 +7,14 @@
   pointer-events: none;
 }
 
+:root {
+  --dark-gray: #282c34;
+}
+
+.bg-dark-gray {
+  background-color: var(--dark-gray);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -14,7 +22,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +42,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.flex-grow-2 {
+  flex-grow: 2 !important;
 }
