@@ -1,15 +1,16 @@
 export default (path) => {
   const parts = path.split(".");
-  const module = parts.shift();
+  const file = parts.shift();
 
-  if (module === "index")
+  if (file === "index")
     throw Error("Index Can not be targeted, please choose another config.");
 
   try {
-    const m = require(`./${module}`);
+    let target = require(`./${file}`);
+    parts.map((p) => { target = target[p]; }).pop();
 
-    return parts.map((p) => m[p]).pop();
+    return target;
   } catch (ex) {
-    throw Error(`Config Module "${module}" does not exist!`);
+    throw Error(`Config Module "${file}" does not exist!`);
   }
 };
